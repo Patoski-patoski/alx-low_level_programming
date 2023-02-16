@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <unisted.h>
+#include <unistd.h>
 
 /**
- *  main - Entry point
+ * main - Entry point
  *
  * Description: 'and that piece of art is useful" - Dora Korpar, 2015-10-19'
  *
