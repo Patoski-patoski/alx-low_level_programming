@@ -13,4 +13,4 @@ int main(void)
 	putchar(numbers + '0');
 	putchar('\n');
 	return (0);
-
+}
