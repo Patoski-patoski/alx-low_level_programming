@@ -7,12 +7,16 @@
 
 int main(void)
 {
-	char alphabets = 'a';
+	int number;
 
-	while (alphabets <= 'z')
+	for (number = 0; number <= 9; number++)
 	{
-		putchar(alphabets);
-		alphabets++;
+		putchar(number + '0');
+		if (number < 9)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
 		putchar('\n');
 		return (0);
