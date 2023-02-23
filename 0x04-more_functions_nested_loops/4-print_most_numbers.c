@@ -13,7 +13,7 @@ void print_numbers(void)
 {
 	int n;
 
-	for (n = 20; n <30; n++)
+	for (n = 20; n < 30; n++)
 	{
 		putchar(n);
 	}
