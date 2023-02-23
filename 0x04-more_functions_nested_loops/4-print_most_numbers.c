@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "main.h"
 
@@ -21,4 +20,4 @@ void print_most_numbers(void)
 		putchar(n);
 	}
 	putchar(10);
-
+}
