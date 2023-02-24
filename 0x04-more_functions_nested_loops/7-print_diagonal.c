@@ -2,7 +2,7 @@
 /**
  * print_diagonal - Entry point
  *
- * @n: integer to represent
+ * @n: an integer to represent
  */
 
 void print_diagonal(int n)
