@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
-		(void)argc;
+		(void)argv;
 		sum++;
 		i++;
 	}
