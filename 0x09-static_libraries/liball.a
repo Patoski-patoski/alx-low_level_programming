@@ -142,7 +142,34 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	return (dest);
 }
-1-strncat.c/    0           0     0     644     0         `
+1-strncat.c/    0           0     0     644     448       `
+#include "main.h"
+/**
+ * _strncat - concatenates two strings,
+ * @dest: destination.
+ * @src: source.
+ * @n: amount of bytes used from src.
+ * Return: the pointer to dest.
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int count = 0, count2 = 0;
+
+	while (*(dest + count) != '\0')
+	{
+		count++;
+	}
+
+	while (count2 < n)
+	{
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) == '\0')
+			break;
+		count++;
+		count2++;
+	}
+	return (dest);
+}
 2-strchr.c/     0           0     0     644     384       `
 #include "main.h"
 
