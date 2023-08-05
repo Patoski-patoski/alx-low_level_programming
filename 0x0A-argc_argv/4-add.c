@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "main.h"
 
 /**
  * isdigit - a function that checks if a parameter is a digit(0-9)
