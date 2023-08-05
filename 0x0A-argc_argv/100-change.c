@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * main - main function
  * @argc: the argument count
@@ -10,7 +13,7 @@
 int main(int argc, char *argv[])
 {
 	int cents;
-	int coins;
+	int coins = 0;
 
 	argc--;
 
