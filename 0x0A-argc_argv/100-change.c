@@ -18,7 +18,10 @@ int main(int argc, char *argv[])
 	argc--;
 
 	if (argc != 1)
+	{
+		puts("Error");
 		return (1);
+	}
 
 	cents = atoi(argv[1]);
 
