@@ -6,17 +6,21 @@
  *
  * @str: parameter 1: string
  * Return: pointer to memory
-  */
+ **/
 
 char *_strdup(char *str)
 {
 	char *ptr = NULL;
-	unsigned int i;
+	unsigned int i, len;
+
+	len = 0;
 
 	if (str == NULL)
 		return (NULL);
 
-	ptr = malloc(sizeof(str));
+	len = findlength(str);
+
+	ptr = malloc((len) + 1);
 
 	if (ptr == NULL)
 		return (NULL);
@@ -24,5 +28,30 @@ char *_strdup(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		ptr[i] = str[i];
 
+	ptr[i] = '\0';
+
 	return (ptr);
 }
+
+/**
+ * findlength - to find the length of string
+ * @str: parameter1: The string
+ *
+ * Return: number of charters in str
+ *
+ **/
+
+int findlength(char *str)
+{
+        int len;
+
+        len = 0;
+
+        while (*str)
+        {
+                len++;
+                str++;
+        }
+        return (len);
+}
+
