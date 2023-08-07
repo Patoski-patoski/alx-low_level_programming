@@ -43,15 +43,14 @@ char *_strdup(char *str)
 
 int findlength(char *str)
 {
-        int len;
+	int len;
 
-        len = 0;
-
-        while (*str)
-        {
-                len++;
-                str++;
-        }
-        return (len);
+	len = 0;
+	while (*str)
+	{
+		len++;
+		str++;
+	}
+	return (len);
 }
 
