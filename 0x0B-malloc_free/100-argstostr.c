@@ -35,7 +35,7 @@ char *argstostr(int ac, char **av)
 	}
 
 	s[k - 1] = 10;
-i
+
 	return (s);
 }
 
