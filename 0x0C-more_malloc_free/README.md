@@ -1,1 +1,1 @@
-C - More malloc, calloc, realloc, free
+C - malloc, calloc, realloc, free
