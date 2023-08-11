@@ -11,7 +11,7 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr, *ptr2;
+	char *ptr;
 	unsigned int i, j, len1, len2;
 
 	if (s1 == NULL)
@@ -22,37 +22,24 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len1 = findlength(s1);
 	len2 = findlength(s2);
 
-	ptr = malloc(sizeof(char *) * len1);
+	if (n >= len2)
+		n = len2;
+
+	ptr = malloc(len1 + n + 1);
+
 	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; s1[i] != '\0'; i++)
+	for (i = 0; i < len1; i++)
 		ptr[i] = s1[i];
-	ptr[i] = '\0';
 
-	if (n < len2)
-	{
-		ptr2 = ptr + len1;
-		if (ptr2 == NULL)
-			return (NULL);
+	for (j = 0; j < n; j++)
+		ptr[len1 + j] = s2[j];
 
-		for (j = 0; s2[j] != '\0'; j++)
-			ptr2[j] = s2[j];
-		ptr[len1 + n] = '\0';
-	}
-	if (n >= len2)
-	{
-		ptr2 = ptr + len2;
-		if (ptr2 == NULL)
-			return (NULL);
+	ptr[len1 + n] = '\0';
 
-		for (j = 0; s2[j] != '\0'; j++)
-			ptr2[j] = s2[j];
-		ptr[len1 + len2] = '\0';
-	}
 	return (ptr);
 }
-
 
 
 /**
@@ -64,9 +51,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 int findlength(char *str)
 {
-	int n;
-
-	n = 0;
+	unsigned int n = 0;
 
 	while (*str)
 	{
