@@ -2,7 +2,7 @@
 
 /**
  * print_dog -  a function that prints a struct dog
- * @d - struct dog
+ * @d: struct dog
  *
  * Return: Nothing
  **/
