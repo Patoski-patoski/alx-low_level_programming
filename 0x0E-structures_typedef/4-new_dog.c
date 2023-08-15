@@ -18,37 +18,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (main_dog == NULL)
 		return (NULL);
 
-	main_dog->name = my_strdup(name);
+	main_dog->name = strdup(name);
 	main_dog->age = age;
-	main_dog->owner = my_strdup(owner);
+	main_dog->owner = strdup(owner);
 
 	return (main_dog);
-}
-
-/**
- * my_strdup - a function to duplicate string
- * @str: parameter to be duplicated
- *
- * Return: pointer to duplicated string
- **/
-
-char *my_strdup(char *str)
-{
-	char *dest;
-	unsigned int i, len;
-
-	len = 0;
-
-	while (str[len] != '\0')
-		len++;
-
-	dest = malloc(sizeof(char) * (len + 1));
-
-	if (dest == NULL)
-		return (NULL);
-
-	for (i = 0; i <= len; i++)
-		dest[i] = str[i];
-
-	return (dest);
 }
