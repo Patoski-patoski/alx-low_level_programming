@@ -33,6 +33,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	}
 
-	va_end(my_args);
 	printf("\n");
+	va_end(my_args);
 }
