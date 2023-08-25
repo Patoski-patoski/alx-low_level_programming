@@ -3,7 +3,7 @@ section .data
 	format db "%s", 0
 	newline db 10, 0
 
-section .text 
+section .text
 	global main
 	extern printf
 
