@@ -32,7 +32,7 @@ unsigned int binary_to_uint(const char *b)
 
 /**
  * _strlength - a function to find the lenght of a string
- * @str - string
+ * @str: string
  *
  * Return: Length of string
  **/
@@ -40,7 +40,7 @@ unsigned int binary_to_uint(const char *b)
 unsigned int _strlength(const char *str)
 {
 	unsigned int len;
-	
+
 	len = 0;
 	while (*str)
 	{
