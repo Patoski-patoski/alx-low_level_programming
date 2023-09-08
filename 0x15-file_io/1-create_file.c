@@ -10,7 +10,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
+	int res, fd;
 	size_t byte_written;
 
 	if (filename == NULL)
@@ -21,15 +21,19 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	close(fd);
-
-	byte_written = write(fd, text_content, _strlen(text_content));
-
-	if (byte_written <= 0)
+	if (text_content != NULL)
 	{
-		close(fd);
-		return (-1);
+		byte_written = write(fd, text_content, _strlen(text_content));
+		if (byte_written <= 0)
+		{
+			close(fd);
+			return (-1);
+		}
 	}
+
+	res = close(fd);
+	if (res == -1)
+		return (-1);
 
 	return (1);
 }
