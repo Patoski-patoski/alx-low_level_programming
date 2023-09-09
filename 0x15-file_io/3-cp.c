@@ -51,8 +51,7 @@ int copy_file(const char *file_from, const char *file_to)
 		close(fd2);
 		exit(99);
 	}
-
-	while((byte_read = read(fd2, buffer, sizeof(buffer))) > 0)
+	while ((byte_read = read(fd2, buffer, sizeof(buffer))) > 0)
 	{
 		byte_written = write(fd, buffer, byte_read);
 		if (byte_written == -1 || byte_written != byte_read)
@@ -61,15 +60,13 @@ int copy_file(const char *file_from, const char *file_to)
 			close(fd2);
 			return (-1);
 		}
-        }
-
+	}
 	if (byte_read <= 0)
 	{
 		close(fd);
 		close(fd2);
 		return (-1);
 	}
-
 	if (close(fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
