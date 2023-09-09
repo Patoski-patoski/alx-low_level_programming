@@ -61,7 +61,7 @@ int copy_file(const char *file_from, const char *file_to)
 	if (byte_written <= 0)
 	{
 		close(fd2);
-		return(-1);
+		return (-1);
 	}
 	if (close(fd) == -1)
 	{
@@ -73,7 +73,6 @@ int copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
 		exit(100);
 	}
-
 	return (1);
 }
 
