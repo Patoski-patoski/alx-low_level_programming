@@ -32,7 +32,7 @@ int main(int argc, char **argv)
  * Return: Nothing
  **/
 
-void copy_file(const char *file_from, const char *file_to)
+int copy_file(const char *file_from, const char *file_to)
 {
 	int fd, fd2;
 	char buffer[1024];
@@ -55,13 +55,13 @@ void copy_file(const char *file_from, const char *file_to)
 	if (byte_read <= 0)
 	{
 		close(fd2);
-		return;
+		return (-1);
 	}
 	byte_written = write(fd, buffer, _strlen(buffer));
 	if (byte_written <= 0)
 	{
 		close(fd2);
-		return;
+		return(-1);
 	}
 	if (close(fd) == -1)
 	{
@@ -73,6 +73,8 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
 		exit(100);
 	}
+
+	return (1);
 }
 
 /**
