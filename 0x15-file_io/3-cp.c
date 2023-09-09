@@ -55,14 +55,11 @@ int copy_file(const char *file_from, const char *file_to)
 	{
 		byte_written = write(fd, buffer, byte_read);
 		if (byte_written == -1 || byte_written != byte_read)
-		{
 			return (-1);
-		}
 	}
 	if (byte_read <= 0)
-	{
 		return (-1);
-	}
+
 	if (close(fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
