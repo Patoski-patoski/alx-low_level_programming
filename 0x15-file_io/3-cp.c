@@ -56,15 +56,11 @@ int copy_file(const char *file_from, const char *file_to)
 		byte_written = write(fd, buffer, byte_read);
 		if (byte_written == -1 || byte_written != byte_read)
 		{
-			close(fd);
-			close(fd2);
 			return (-1);
 		}
 	}
 	if (byte_read <= 0)
 	{
-		close(fd);
-		close(fd2);
 		return (-1);
 	}
 	if (close(fd) == -1)
