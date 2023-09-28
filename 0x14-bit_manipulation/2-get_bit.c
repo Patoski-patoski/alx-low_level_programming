@@ -10,13 +10,13 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long l_shift, AND;
+	unsigned long l_shift, and;
 
 	if (index > (sizeof(unsigned long int) * 8 - 1))
 		return (-1);
 	l_shift = 1 << index;
-	AND = n & l_shift;
-	if (AND == l_shift)
+	and = n & l_shift;
+	if (and == l_shift)
 		return (1);
 	return (0);
 }
