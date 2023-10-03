@@ -21,7 +21,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (-1);
+	{
+		perror("Unable to open");
+		exit(EXIT_FAILURE);
+	}
 
 	buffer = malloc(letters);
 	if (buffer == NULL)
@@ -31,15 +34,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (byte_read == -1)
 	{
 		perror("Unable to read");
-		return (0);
+		exit(EXIT_FAILURE);
 	}
 
 	byte_written = write(STDOUT_FILENO, buffer, letters);
 	if (byte_written == -1)
 	{
 		perror("Unable to write");
-		return (-1);
+		exit(EXIT_FAILURE);
 	}
 	free(buffer);
+	close(fd);
 	return (byte_read);
 }
