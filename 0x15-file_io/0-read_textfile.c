@@ -36,7 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		perror("Unable to read");
 		free(buffer);
 		close(fd);
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 
 	byte_written = write(STDOUT_FILENO, buffer, byte_read);
@@ -45,7 +45,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		perror("Unable to write");
 		free(buffer);
 		close(fd);
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 	free(buffer);
 	close(fd);
