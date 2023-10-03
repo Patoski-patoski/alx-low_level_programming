@@ -37,7 +37,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		exit(EXIT_FAILURE);
 	}
 
-	byte_written = write(STDOUT_FILENO, buffer, letters);
+	byte_written = write(STDOUT_FILENO, buffer, byte_read);
 	if (byte_written == -1)
 	{
 		perror("Unable to write");
