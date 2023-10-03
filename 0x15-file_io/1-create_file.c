@@ -10,11 +10,10 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
+	int fd, len;
 	ssize_t byte_written;
-	size_t len;
 
-	len = sizeof(text_content);
+	len = _strlen(text_content);
 
 	if (filename == NULL)
 		return (-1);
@@ -23,11 +22,41 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	byte_written = write(fd, text_content, len);
-	if (byte_written == -1)
+	if (text_content == NULL)
 	{
 		close(fd);
-		return (-1);
+		return (1);
 	}
-	return (1);
+	else
+	{
+		byte_written = write(fd, text_content, len);
+		if (byte_written == -1)
+		{
+			close(fd);
+			return (-1);
+		}
+		close(fd);
+		return (1);
+	}
 }
+
+/**
+ * _strlen - get the length of a string
+ * @str: the nul terminated string
+ *
+ * Return: Length of string
+ **/
+
+int _strlen(char *str)
+{
+	int len;
+
+	len = 0;
+	while (*str)
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+
