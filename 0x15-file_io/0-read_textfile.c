@@ -34,6 +34,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (byte_read == -1)
 	{
 		perror("Unable to read");
+		free(buffer);
+		close(fd);
 		exit(EXIT_FAILURE);
 	}
 
@@ -41,6 +43,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (byte_written == -1)
 	{
 		perror("Unable to write");
+		free(buffer);
+		close(fd);
 		exit(EXIT_FAILURE);
 	}
 	free(buffer);
