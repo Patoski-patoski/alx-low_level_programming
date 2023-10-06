@@ -7,7 +7,6 @@
  *
  * Return: Nothing
  **/
-
 int main(int argc, char **argv)
 {
 	ssize_t byte_written, byte_read;
@@ -36,33 +35,46 @@ int main(int argc, char **argv)
 	}
 
 	byte_read = read(file_from, buffer, 1024);
-	if (byte_read == -1)
-	{
-		free(buffer);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+
+	err_sys_call(byte_read, argv[1], buffer);
 
 	byte_written = write(file_to, buffer, byte_read);
-	if (byte_written == -1)
+
+	err_sys_call(byte_written, argv[2], buffer);
+
+	close_error_msg(file_from);
+	close_error_msg(file_to);
+	free(buffer);
+
+	return (0);
+}
+/**
+ * close_error_msg - a function that checks for error message when closing fd
+ * @fd: file descriptor
+ *
+ * Return: Nothing
+ **/
+void close_error_msg(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		exit(100);
+	}
+}
+/**
+ * err_sys_call - a function that checks for system calls eror and frees malloc
+ * @bytes: the return value of the system call
+ * @argv: a pointer to string
+ * @buffer: block of dynamic allocated memory
+ *
+ * Return: Nothing
+ **/
+void err_sys_call(ssize_t bytes, char *argv, char *buffer)
+{
+	if (bytes  == -1)
 	{
 		free(buffer);
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv);
 	}
-
-	if (close(file_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
-	}
-
-	if (close(file_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
-		exit(100);
-	}
-
-	free(buffer);
-	return (0);
 }
