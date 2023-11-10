@@ -7,7 +7,7 @@
  * @head: the entry point of the list
  * @index: the index node of the list
  *
- * Return: nth node 
+ * Return: nth node
  **/
 
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
