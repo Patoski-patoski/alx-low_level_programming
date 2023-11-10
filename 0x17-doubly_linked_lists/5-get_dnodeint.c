@@ -22,7 +22,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		if (node == index)
 		{
 			current = head;
-			if (!(current->n))
+			if (!(current->n) || current == NULL)
 				return (NULL);
 			return (current);
 		}
