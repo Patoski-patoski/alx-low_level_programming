@@ -1,14 +1,12 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set-  a function that adds an element to the hash table.
+ * key_index- a function that gives you the index of a key.
  *
- * @ht: the hash table you want to add or update the key/value to
  * @key: the key
- * @value: the size of the array of the hash table 
+ * @size: the size of the array
  *
- *
- *
+ * Return: On success, the key index, otherwise -1
  **/
 
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
