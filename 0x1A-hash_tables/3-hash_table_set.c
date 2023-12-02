@@ -14,14 +14,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned int index;
 	hash_node_t *newpair = NULL;
-	hash_node_t *current = NULL;
 
 	if (key == NULL)
 		return (0);
 
 	index = key_index((const unsigned char *)key, 1024);
-
-	current = ht->array[index];
 	newpair = malloc(sizeof(hash_node_t));
 
 	if (newpair == NULL)
@@ -43,7 +40,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			current = current->next;
 
 		current->next = newpair;
-		return (1);
 	}
-	return (0);
+	return (1);
 }
