@@ -33,13 +33,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[index] == NULL)
 	{
-		current = ht->array[index];
-		current = newpair;
+		ht->array[index] =  newpair;
 		return (1);
 	}
 	else
 	{
-		current = ht->array[index];
+		hash_node_t *current = ht->array[index];
 		while (current->next != NULL)
 			current = current->next;
 
